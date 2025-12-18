@@ -12,7 +12,7 @@ We first validate the numerical integration of the inverted pendulum dynamics by
 
 ### Long-term rollout
 - The learned dynamics reproduces the qualitative behavior of the trajectory.
-- However, the amplitude and frequency of the trajectory is diverging over time.
+- However, the amplitude and frequency of the trajectory is diverging from the true dynamics over time.
 ![Mecganical energy conservation](figures/MLP_vs_true.png)
 
 ### Energy analysis
@@ -21,5 +21,5 @@ We first validate the numerical integration of the inverted pendulum dynamics by
 
 ### Phase portrait
 - The phase-space structure is approximately captured.
-- The long-term trajectories diverge due to error accumulation.
+- The long-term trajectories diverge from the expected dynamics due to error accumulation.
 ![Mecganical energy conservation](figures/phase.png)
