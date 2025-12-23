@@ -24,3 +24,16 @@ We first validate the numerical integration of the inverted pendulum dynamics by
 - The long-term trajectories diverge from the expected dynamics due to error accumulation.
 - The lack of closed trajectories in the learned phase portrait is a consequence of the model not conserving the mechanical energy.
 ![Mecganical energy conservation](figures/phase.png)
+
+## Rollout with RK4
+- In this experiment, the MLP learn how to predict the state derivatives (d_theta, d_omega) from the state (theta, omega).The vector field is then integrated using RK4 method to generate the trajectory.
+
+### Trajectory
+- The predicted trajectory using MLP differs significantly from the true trajectory. In particular, the learned dynamics shows a stable equilibrium point at θ=0, whereas the true pendulum has its stable equilibrium at θ=π. Moreover, the amplitude of the oscillations decreases over time despite the data being generated from a conservative system.
+- ![Trajectories](figures/mlp_rk4.png)
+
+### Phase portrait
+- The learned phase portrait clearly shows a spiral-like pattern converging toward a single attractor at (0,0), which indicating artificial energy dissipation. This behavior arises from the lack of physical constraints such as energy conservation in the MLP architecture. As a result, despite achieving a low local prediction error, the learned dynamics fail to reproduce the correct long-term qualitative behavior of the system.
+![Vector field of the MLP](figures/vector_mlp.png)
+
+  
