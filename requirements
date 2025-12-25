@@ -1,0 +1,5 @@
+## Requirements
+jupyter>=1.0.0
+numpy>=1.21.0
+matplotlib>=3.5.0
+torch>=2.9.0
