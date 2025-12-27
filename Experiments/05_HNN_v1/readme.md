@@ -1,15 +1,15 @@
 ### Forth model
-In this experiment, the neural network is trained to learn the Hamiltonian of the system. The state derivatives are then recovered using Hamiltonian's equations. However, in this experiment the dataset used for training was modified. 
-The dataset was built in a way such that 1/50 of the point are from low energy trajectory (it represent roughly 300 points) and the split between train and test was made such that there are low, mid and hight energies trajectory in both 
-the training set and test set. Moreover a new loss was introduced to try to force the neural network to place the stable equilibrium point at pi.
+In this experiment, the neural network is trained to learn the Hamiltonian of the system. The state derivatives are then recovered using Hamilton’s equations. Compared to the previous experiments, the training dataset was modified.
+The dataset was constructed such that approximately 1/50 of the samples correspond to low-energy trajectories (about 300 points). The train–test split was designed to ensure that low-, medium-, and high-energy trajectories are present in both the training and test sets. Moreover, a new loss term was introduced in an attempt to force the neural network to place the stable equilibrium point at θ=π.
 
 #### Trajectory
-- The neural network, despite despite failing to learn that the stable equilibrium point is at pi, managed to build physicly correct trajectories. In fact, it is able to get the correct amplitude and period of the oscillations.
+- Despite despite failing to learn that the stable equilibrium point is located at pi, the neural network is able to generate physically consistent trajectories. In particular, it succesfully reproduces the correct iscillations amplitude and period, even for initial condition away from the equilibrium point.
 ![Trajectory](figures/HNN_v1.png)
 
 
 #### Phase portrait
-- The neural network is now able to build close shaped phase portrait when the system does not have the required amount of energy to do a full revolution.
+- The neural network is now able to generate closed phase space trajectories when the system does not have sufficent energy to do a full rotation, which is consistent with the expected behavior of the pendulum.
 
 #### Analysis
-- Despite trying to force the system to learn the position of the stable equilibrium point by adding a loss that penalize a wrong position of it, the neural network fails to learn it's correct position and is placing it at 0.
+- Despite explicitly penalizing incorrect equilibrium positionning throught a new loss term, the neural network is consistently positionning the equilibrium point at θ=0 instead of θ=π.
+- This behavior clearly shows an identifiable issue: while the learned Hamiltonian produces correct dynamics, the position of the equilibrium point is not uniquely determined by the equations of motion alone.
