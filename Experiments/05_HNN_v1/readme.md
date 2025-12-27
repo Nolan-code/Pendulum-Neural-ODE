@@ -4,6 +4,7 @@ The dataset was constructed such that approximately 1/50 of the samples correspo
 
 #### Trajectory
 - Despite despite failing to learn that the stable equilibrium point is located at pi, the neural network is able to generate physically consistent trajectories. In particular, it succesfully reproduces the correct iscillations amplitude and period, even for initial condition away from the equilibrium point.
+
 ![Trajectory](figures/HNN_v1.png)
 
 
