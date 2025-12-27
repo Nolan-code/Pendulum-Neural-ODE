@@ -1,4 +1,4 @@
-### Third model
+## Third model
 In this experiment, the neural network is trained to learn the Hamiltonian of the system. The state derivatives (d_theta, d_omega) are then recovered from the Hamiltonian using Hamilton’s equations, ensuring a conservative vector field by construction.
 
 ### Trajectory
