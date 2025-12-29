@@ -8,3 +8,7 @@ While Hamiltonian neural networks successfully conserved the energy of the syste
     d/dt (∂L/∂ω) - ∂L/∂θ = 0
 #### Dynamics
 - The LNN reproduces the dynamics of the system consistently after correction of the dataset. It is now able to place accurately the stable equilibrium point at π. The LNN is also able to generate physically consistent trajectories even over long periods of time (more than 60 seconds), unlike the one-step prediction model, which was only able to reproduce the shape of the trajectory but not the amplitude due to energy loss over time.
+![Trajectory](figures/trajectory_LNN.png)
+![Phase portrait](figures/phase_portrait_LNN.png)
+
+
