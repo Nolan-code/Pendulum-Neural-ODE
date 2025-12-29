@@ -1,6 +1,6 @@
 ### Forth model
 In this experiment, the neural network is trained to learn the Hamiltonian of the system. The state derivatives are then recovered using Hamilton’s equations. Compared to the previous experiments, the training dataset was modified.
-The dataset was constructed such that approximately 1/50 of the samples correspond to low-energy trajectories (about 300 points). The train–test split was designed to ensure that low-, medium-, and high-energy trajectories are present in both the training and test sets. Moreover, a new loss term was introduced in an attempt to force the neural network to place the stable equilibrium point at θ=π.
+The dataset was constructed such that approximately 1/50 of the samples correspond to low-energy trajectories (about 300 points). The train–test split was designed to ensure that low, medium, and high energy trajectories are present in both the training and test sets. Moreover, a new loss term was introduced in an attempt to force the neural network to place the stable equilibrium point at θ=π.
 
 #### Trajectory
 - Despite despite failing to learn that the stable equilibrium point is located at pi, the neural network is able to generate physically consistent trajectories. In particular, it succesfully reproduces the correct iscillations amplitude and period, even for initial condition away from the equilibrium point.
