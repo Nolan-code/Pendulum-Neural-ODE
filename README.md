@@ -5,16 +5,17 @@ The goal is to compare purely data-driven models to physics informed architectur
 ## Physical system
 We considered a planar pendulum governed by a non-linear second order ordinary differential equation. The system is conservative and admits a Hamiltonian formulation, making it suitable for physical informed learning.   
 The state is given by:    
-   x = (θ, ω)     
+- x = (θ, ω)     
 where :  
 - θ the angle
 - ω the angular velocity
 
 The dynamics can be written as:   
-      θ' = ω,  ω' = (g/l) * ​sin(θ)
+- θ' = ω
+- ω' = (g/l) * ​sin(θ)
 
 The Hamiltonian of the system is given by:  
-   H(θ,ω) = (1/2) * ​ω2 + (g/l) * (1 − cosθ)
+- H(θ,ω) = (1/2) * ​ω2 + (g/l) * (1 − cosθ)
 
 ## Numerical baseline
 Before any learning stage, references trajectories are generated using a forth order Runge–Kutta (RK4) integration scheme.   
@@ -25,27 +26,42 @@ The numerical solver is validated by checking :
 This ensure that the training data is physically consistent.
 
 ## Learning approach
-I progressively increased the amount of physical constraints imposed by the model:
-- Direct state prediction using an MLP
-- learning the vector field and integrating using RK4
-- Hamiltonian neural network (HNN)
-- Lagrangian neural network (LNN)
+Several learning strategies with increasing level of physical structure are compared.
+#### Direct state prediction using an MLP
+A multilayer perceptrons predicts the next state x(t+1) from thecurrent state x(t). This approach is purely data driven and do not impose any physical constraints.
+#### Learning the vector field and integrating using RK4
+The neural network learns the vector fields x'=f_θ(x). The prediction is then recovered by integrating this vector field by using RK4.
+#### Hamiltonian neural network (HNN)
+The neural network learns a scalar Hamiltonian function H_θ(x), from which the dynamics are derived using:
+- x'=J∇H_θ​(x)   
+where J is the canonical symplectic matrix.
+This structure aim to force energy conservation of the system.
+#### Lagrangian neural network (LNN)
+The dynamics are learn via the Lagrangian L_θ​(q,q'​), using the Euler-Lagrange equations.
 
 ## Key elements
-- Purely data-driven (without physical constraints) model achieves low quality predictions, especially one-step prediction which rapidly differs from the true trajectory due to error accumulation.
+- Purely data-driven model fails to conserve the qualitative structure of the dynamics and quickly differs from the true behavior due to error accumulation
 - Learning the vector field improves short-term prediction but also introduces artificial energy dissipation, causing the amplitude of the oscillations to decrease over time.
-- Physics informed models enforce global strucure and also help to diagnose inconsistencies in the training data.
-- Correct physically modeling requires both well-structured models with physical constraints and physically consistent data.
+- Physics informed models enforce global structural constraints and achieve a better long term prediction
+- These models are also extremly sensitive to inconsistencies in the training dataset
 
 ## Impact of dataset correction
-During the training of the physics-informed models, inconsistencies were identified in the original dataset, notably in the sign and qualitative behavior of the angular acceleration.
+During the training of the physics-informed models, inconsistencies were identified in the original dataset, notably in the sign and qualitative behavior of the angular acceleration.   
 After correcting the dataset, earlier models (MLP-based predictors and HNN) were retrained for comparison.
-
-While the quantitative performance of the MLP improved, this model still failed to consistently reproduce the correct physical structure and long-term dynamics. In contrast, physics-informed models (HNN and LNN) exhibited a clear sensitivity to data consistency and benefited significantly from the corrected dataset.
-
-This highlights an important distinction: purely data-driven models may fit inconsistent data without exposing underlying physical errors, whereas physics-informed architectures can clearly exhibit physical inconsistencies in the training dataset.
+- MLP based models improved quantitatively but still fail to preserve the correct physical structure
+- Physics informed models, in comparaison, significantly improved and clearly predict the correct dynamics
+This highlights an important distinction:   
+purely data-driven models may fit inconsistent data without exposing underlying physical errors, whereas physics-informed architectures can clearly exhibit physical inconsistencies in the training dataset.
 
 ## Lessons learned
-This project highlights that physics informed models are not only a predictive tool but also a good way of diagnosing physical inconstitencies in the training data. In particular, the Hamiltonian model exhibits signs of physical data inconstitencies that weren't detected by standard neural networks.
+This project highlights that physics informed models are not only a predictive tool but also powerfull tools for:
+- Diagnosing physical inconstitencies in the training data.
+- Enforcing physical consistency
+- preserving the dynamical structure over a long period of time
 
+## Perspectives
+Future extensions include:
+- chaotic system
+- dissipative system
+- comparaison with PINNs 
 
