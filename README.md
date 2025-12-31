@@ -12,7 +12,8 @@ where :
 
 The dynamics can be written as:   
 - θ' = ω
-- ω' = (g/l) * ​sin(θ)
+- ω' = (g/l) * ​sin(θ)   
+Note: the sign convention corresponds to θ measured from the upright equilibrium.
 
 The Hamiltonian of the system is given by:  
 - H(θ,ω) = (1/2) * ​ω2 + (g/l) * (1 − cosθ)
