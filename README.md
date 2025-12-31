@@ -3,7 +3,7 @@ This project investigates the learning of nonlinear physical dynamics using neur
 The goal is to compare purely data-driven models to physics informed architectures and to analyze their ability to reproduce both the quantitative accuracy and qualitative physical structure of a conservative dynamical system.
 
 ## Physical system
-We considered a planar pendulum governed by a non-linear second order ordinary differential equation. The system is conservative and admits a Hamiltonian formulation, making it suitable for physical informed learning.   
+We considered a planar pendulum governed by a non-linear second order ordinary differential equation. The system is conservative and admits a Hamiltonian formulation, making it suitable for physical informed learning.  
 The state is given by:    
 - x = (θ, ω)     
 where :  
@@ -12,13 +12,13 @@ where :
 
 The dynamics can be written as:   
 - θ' = ω
-- ω' = (g/l) * ​sin(θ)     
-Note: the sign convention corresponds to θ measured from the upright equilibrium.    
+- ω' = (g/l) * ​sin(θ)  
+Note: the sign convention corresponds to θ measured from the upright equilibrium.  
 The Hamiltonian of the system is given by:  
 - H(θ,ω) = (1/2) * ​ω2 + (g/l) * (1 − cosθ)
 
 ## Numerical baseline
-Before any learning stage, references trajectories are generated using a forth order Runge–Kutta (RK4) integration scheme.   
+Before any learning stage, references trajectories are generated using a forth order Runge–Kutta (RK4) integration scheme.  
 The numerical solver is validated by checking :
 - the energy conservation
 - phase-space structure
