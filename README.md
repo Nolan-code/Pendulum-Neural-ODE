@@ -34,7 +34,7 @@ A multilayer perceptrons predicts the next state x(t+1) from thecurrent state x(
 The neural network learns the vector fields x'=f_θ(x). The prediction is then recovered by integrating this vector field by using RK4.
 #### Hamiltonian neural network (HNN)
 The neural network learns a scalar Hamiltonian function H_θ(x), from which the dynamics are derived using:
-- x'=J∇H_θ​(x)   
+- x'=J∇H_θ​(x)     
 where J is the canonical symplectic matrix.
 This structure aim to force energy conservation of the system.
 #### Lagrangian neural network (LNN)
