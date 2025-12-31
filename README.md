@@ -4,13 +4,14 @@ The goal is to compare purely data-driven models to physics informed architectur
 
 ## Physical system
 We considered a planar pendulum governed by a non-linear second order ordinary differential equation. The system is conservative and admits a Hamiltonian formulation, making it suitable for physical informed learning.   
-- The state is given by x = (θ, ω)   
+The state is given by:    
+   x = (θ, ω)     
 where :  
 - θ the angle
 - ω the angular velocity
 
 The dynamics can be written as:   
-      θ˙ = ω,  ω˙ = (g/l) * ​sin(θ)
+      θ' = ω,  ω' = (g/l) * ​sin(θ)
 
 The Hamiltonian of the system is given by:  
    H(θ,ω) = (1/2) * ​ω2 + (g/l) * (1 − cosθ)
