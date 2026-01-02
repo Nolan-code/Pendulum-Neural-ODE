@@ -3,10 +3,9 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 import numpy as np
 
-"""from src.needed_functions.hnn_fn import *
-from src.needed_functions.lnn import *
-from src.needed_functions.vector_field_mlp import *"""
-from Common.needed_fn import *
+from src.physics.model_simulation import *
+from src.physics.true_simulation import *
+
 
 def build_model(model_name):
     try:
@@ -19,12 +18,6 @@ MODEL_REGISTRY = {
     "hnn": HNN,
     "lnn": LNN,
 }
-
-"""SIMULATE_REGISTRY = {
-    "hnn": trajectory_simulation_HNN,
-    "lnn": simulate_lnn,
-    "mlp": simulate_mlp,
-}"""
 
 parser = argparse.ArgumentParser()
 
