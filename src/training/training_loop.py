@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 import argparse
+from pathlib import Path
 
 from src.data.load_dataset import load_pendulum
 from src.models.mlp_vectorfield import VectorFieldMLP
@@ -84,4 +85,9 @@ for epoch in range(n_epochs):
 # Save model
 #-------------
 
-torch.save(model.state_dict(),  f"{args.model}_model.pth")
+checkpoint_dir = Path("./src/checkpoints")
+checkpoint_dir.mkdir(parents=True, exist_ok=True)
+
+checkpoint_path = checkpoint_dir / f"{args.model}.pth"
+torch.save(model.state_dict(), checkpoint_path)
+print(f"Model saved to {checkpoint_path}")
