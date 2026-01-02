@@ -102,6 +102,9 @@ if args.show:
 else:
     plt.close()
 
+output_dir = Path(f"./results/{args.model}")
+output_dir.mkdir(parents=True, exist_ok=True)
+
 np.savez(
     output_dir / "trajectory.npz",
     t=t,
@@ -112,3 +115,4 @@ np.savez(
     dt=dt,
     x0=x0
 )
+
