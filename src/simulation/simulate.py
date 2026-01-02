@@ -101,3 +101,14 @@ if args.show:
     plt.show()
 else:
     plt.close()
+
+np.savez(
+    output_dir / "trajectory.npz",
+    t=t,
+    x_pred=np.array(model_trajectory),
+    x_true=np.array(true_trajectory),
+    model=args.model,
+    checkpoint=args.checkpoint,
+    dt=dt,
+    x0=x0
+)
