@@ -32,6 +32,7 @@ parser.add_argument('--model', type=str, required=True, help='Model type: mlp, h
 parser.add_argument('--checkpoint', type=str, required=True, help='Path to model checkpoint (e.g., hnn_model.pth)')
 parser.add_argument('--initial_conditions', type=float, nargs='+', required=True, help='Initial conditions [theta, omega, ...]')
 parser.add_argument('--duration', type=float, default=10.0, help='Simulation duration')
+parser.add_argument('--step', type=float, default=0.01, help='Step')
 parser.add_argument('--output', type=str, default='simulation.npy',help='Output file for trajectory')
 parser.add_argument('--show', action='store_true', help='Show plots')
 
@@ -50,7 +51,7 @@ params = {
 model = build_model(args.model)
 simulation_fn = SIMULATE_REGISTRY[args.model]
 T = args.duration
-dt = 0.01
+dt = args.step
 x0 = args.initial_conditions
 
 t = np.arange(start=0, stop = T + dt, step = dt)
