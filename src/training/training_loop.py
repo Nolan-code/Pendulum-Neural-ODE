@@ -3,7 +3,7 @@ import torch.nn as nn
 import argparse
 
 from src.data.load_dataset import load_pendulum
-from .mlp_vectorfield import VectorFieldMLP
+from src.models.mlp_vectorfield import VectorFieldMLP
 from src.models.hnn import HNN
 from src.models.lnn import LNN
 
