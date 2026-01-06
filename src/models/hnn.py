@@ -34,8 +34,8 @@ class MLP_V(nn.Module):
 class HNN(nn.Module):
     def __init__(self):
         super().__init__()
-        self.T = MLP_T()  # entrée: ω
-        self.V = MLP_V()  # entrée: sinθ, cosθ
+        self.T = MLP_T() 
+        self.V = MLP_V()  
 
 
     def hamiltonian(self, X):
