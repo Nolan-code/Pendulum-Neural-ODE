@@ -15,7 +15,7 @@ def build_model(model_name):
         raise ValueError(f"Unknown model type: {model_name}")
 
 MODEL_REGISTRY = {
-    "mlp": VectorFieldMLP,
+    "mlp": MLP,
     "hnn": HNN,
     "lnn": LNN,
 }
