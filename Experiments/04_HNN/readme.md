@@ -23,7 +23,7 @@ The dataset was constructed such that approximately 1/50 of the samples correspo
   - However, without additional global constraints, they may fail to recover:
     - The correct energy landscape
     - The true location of stable equilibrium point
-- These limitations motivate the transition to another model,a Lagrangian neural network where:
+- These limitations motivate the transition to another model, a Lagrangian neural network where:
   - The potential energy is directly learned
   - Stable equilibria correspond to minima of a learned scalar function
   - The physical structure of the system is more strongly constrained
