@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 import numpy as np
 import torch
-from src.physics.model_simulation import *
-from src.physics.true_simulation import *
+from src.systems.pendulum.physics.model_simulation import *
+from src.systems.pendulum.physics.true_simulation import *
 
 def build_model(model_name): 
     try: 
