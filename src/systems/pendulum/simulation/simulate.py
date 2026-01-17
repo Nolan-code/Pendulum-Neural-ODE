@@ -61,7 +61,7 @@ true_trajectory = trajectory_simulation(x0, zero_control, dt, T, params=params)
 #--------------------------
 # Create output directory
 #--------------------------
-output_dir = Path(f"./results/{args.model}")
+output_dir = Path("./results/pendulum")
 output_dir.mkdir(parents=True, exist_ok=True)
 
 #-------
@@ -75,7 +75,7 @@ plt.title("Trajectory")
 plt.xlabel("Time (s)")
 plt.ylabel("Theta (rad)")
 plt.legend([f'{args.model}', "True"])
-traj_path = output_dir / "trajectory.png"
+traj_path = output_dir / f"trajectory_{args.model}.png"
 plt.savefig(traj_path, dpi=300, bbox_inches='tight')
 print(f"Plot saved to {traj_path}")
 if args.show:
@@ -91,7 +91,7 @@ plt.title("Phase Space")
 plt.legend([f'{args.model}', "True"])
 plt.xlabel("Theta (rad)")
 plt.ylabel("Omega (rad/s)")
-phase_path = output_dir / "phase_portrait.png"
+phase_path = output_dir / f"phase_portrait_{args.model}.png"
 plt.savefig(phase_path, dpi=300, bbox_inches='tight')
 print(f"Plot saved to {phase_path}")
 if args.show:
@@ -101,7 +101,7 @@ else:
 
 # Save trajectory data
 np.savez(
-    output_dir / "trajectory.npz",
+    output_dir / f"trajectory_{args.model}.npz",
     t=t,
     x_pred=np.array(model_trajectory),
     x_true=np.array(true_trajectory),
@@ -110,4 +110,4 @@ np.savez(
     dt=dt,
     x0=x0
 )
-print(f"Trajectory data saved to {output_dir / 'trajectory.npz'}")
+print(f"Trajectory data saved to {output_dir / f'trajectory_{args.model}.npz'}")
