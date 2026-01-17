@@ -5,18 +5,21 @@ import numpy as np
 import torch
 from src.systems.double_pendulum.physics.model_simulation import *
 from src.systems.double_pendulum.physics.true_simulation import *
-
-def build_model(model_name): 
-    try: 
-        return MODEL_REGISTRY[model_name]()
-    except KeyError: 
-        raise ValueError(f"Unknown model type: {model_name}")
+from src.systems.double_pendulum.models.mlp import MLP
+from src.systems.double_pendulum.models.hnn import HNN
+from src.systems.double_pendulum.models.lnn import LNN
 
 MODEL_REGISTRY = {
     "mlp": MLP,
     "hnn": HNN,
     "lnn": LNN,
 }
+
+def build_model(model_name): 
+    try: 
+        return MODEL_REGISTRY[model_name]()
+    except KeyError: 
+        raise ValueError(f"Unknown model type: {model_name}")
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--model', type=str, required=True, help='Model type: mlp, hnn, or lnn')
