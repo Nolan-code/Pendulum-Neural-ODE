@@ -1,13 +1,14 @@
-def load_double_pendulum(format, train):
-    if train=="low":
-      data_train = np.load("double_pendulum_low_train.npz")
-      data_test = np.load("double_pendulum_low_test.npz")
-    elif train=="all":
-      data_train = np.load("double_pendulum_all_train.npz")
-      data_test = np.load("double_pendulum_all_test.npz")
-    else:
-      data_train = np.load("double_pendulum_train2.npz")
-      data_test = np.load("double_pendulum_test2.npz")
+import numpy as np
+import torch
+from torch.utils.data import TensorDataset, DataLoader
+from pathlib import Path
+
+def load_double_pendulum(format):
+    chemin_data_train = Path(__file__).parent.parent / 'data' / 'double_pendulum_train2.npz'
+    chemin_data_test = Path(__file__).parent.parent / 'data' / 'double_pendulum_test2.npz'
+    
+    data_train = np.load("double_pendulum_train2.npz")
+    data_test = np.load("double_pendulum_test2.npz")
 
     if format in ["sincos"]:
         theta1_train = data_train["theta1"]
