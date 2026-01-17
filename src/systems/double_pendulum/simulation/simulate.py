@@ -51,7 +51,7 @@ else:
     
 model.eval()
 
-if args.model in ["lnn", "hnn"]: 
+if args.model in ["mlp", "hnn"]: 
     format = "sincos" 
 else: 
     format = "theta"
