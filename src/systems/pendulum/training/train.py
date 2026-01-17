@@ -4,12 +4,12 @@ import argparse
 from pathlib import Path
 
 from src.systems.pendulum.data.load_dataset import load_pendulum
-from src.systems.pendulum.models.mlp_vectorfield import VectorFieldMLP
+from src.systems.pendulum.models.mlp import MLP
 from src.systems.pendulum.models.hnn import HNN
 from src.systems.pendulum.models.lnn import LNN
 
 MODEL_REGISTRY = {
-    "mlp": VectorFieldMLP,
+    "mlp": MLP,
     "hnn": HNN,
     "lnn": LNN,
 }
