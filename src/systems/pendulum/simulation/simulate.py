@@ -42,7 +42,13 @@ params = {
 
 model = build_model(args.model)
 ckpt = torch.load(args.checkpoint, map_location="cpu")
-model.load_state_dict(ckpt)
+model.load_state_dict(ckpt['state_dict'])
+
+if isinstance(ckpt, dict) and 'state_dict' in ckpt:
+    model.load_state_dict(ckpt['state_dict'])
+else:
+    model.load_state_dict(ckpt)
+    
 model.eval()
 
 if args.model in ["lnn", "hnn"]: 
