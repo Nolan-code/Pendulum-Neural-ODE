@@ -1,3 +1,6 @@
+import torch
+import numpy as np
+
 def double_pendulum_dynamics(X, params):  # Compute the function f(x,t) such that theta'' = f(x,t)
   if X.dim() == 1:
       X = X.unsqueeze(0)
