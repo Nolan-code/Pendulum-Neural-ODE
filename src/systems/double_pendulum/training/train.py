@@ -3,7 +3,7 @@ import torch.nn as nn
 import argparse
 from pathlib import Path
 
-from src.systems.double_pendulum.data.load_dataset import load_double_pendulum
+from src.systems.double_pendulum.data.load_double_pendulum import load_double_pendulum
 from src.systems.double_pendulum.models.mlp import MLP
 from src.systems.double_pendulum.models.hnn import HNN
 from src.systems.double_pendulum.models.lnn import LNN
