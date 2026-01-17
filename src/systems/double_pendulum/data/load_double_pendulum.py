@@ -7,8 +7,8 @@ def load_double_pendulum(format):
     chemin_data_train = Path(__file__).parent.parent / 'data' / 'double_pendulum_train2.npz'
     chemin_data_test = Path(__file__).parent.parent / 'data' / 'double_pendulum_test2.npz'
     
-    data_train = np.load("double_pendulum_train2.npz")
-    data_test = np.load("double_pendulum_test2.npz")
+    data_train = np.load(chemin_data_train)
+    data_test = np.load(chemin_data_test)
 
     if format in ["sincos"]:
         theta1_train = data_train["theta1"]
