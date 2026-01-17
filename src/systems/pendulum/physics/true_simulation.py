@@ -1,5 +1,5 @@
 import torch
-import numpy
+import numpy as np
 
 def pendulum_dynamics(x, u, params):  # Compute the function f(x,t) such that theta'' = f(x,t)
   theta, omega = x
