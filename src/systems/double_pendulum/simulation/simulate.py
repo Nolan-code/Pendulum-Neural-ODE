@@ -78,15 +78,15 @@ output_dir.mkdir(parents=True, exist_ok=True)
 #-------
 # Plots
 #-------
-# Trajectory plot
+# Trajectory plot 1
 plt.figure(figsize=(10, 6))
 plt.plot(t, np.array(model_trajectory)[:, 0], "--")
 plt.plot(t, np.array(true_trajectory)[:, 0], "-.")
 plt.title("Trajectory")
 plt.xlabel("Time (s)")
-plt.ylabel("Theta (rad)")
+plt.ylabel("Theta 1 (rad)")
 plt.legend([f'{args.model}', "True"])
-traj_path = output_dir / f"trajectory_{args.model}.png"
+traj_path = output_dir / f"trajectory_1_{args.model}.png"
 plt.savefig(traj_path, dpi=300, bbox_inches='tight')
 print(f"Plot saved to {traj_path}")
 if args.show:
@@ -94,15 +94,47 @@ if args.show:
 else:
     plt.close()
 
-# Phase space plot
+# Trajectory plot 2
 plt.figure(figsize=(10, 6))
-plt.plot(np.array(model_trajectory)[:, 0], np.array(model_trajectory)[:, 1], "--")
-plt.plot(np.array(true_trajectory)[:, 0], np.array(true_trajectory)[:, 1], "-.")
+plt.plot(t, np.array(model_trajectory)[:, 1], "--")
+plt.plot(t, np.array(true_trajectory)[:, 1], "-.")
+plt.title("Trajectory")
+plt.xlabel("Time (s)")
+plt.ylabel("Theta 2 (rad)")
+plt.legend([f'{args.model}', "True"])
+traj_path = output_dir / f"trajectory_2_{args.model}.png"
+plt.savefig(traj_path, dpi=300, bbox_inches='tight')
+print(f"Plot saved to {traj_path}")
+if args.show:
+    plt.show()
+else:
+    plt.close()
+
+# Phase space plot 1
+plt.figure(figsize=(10, 6))
+plt.plot(np.array(model_trajectory)[:, 0], np.array(model_trajectory)[:, 2], "--")
+plt.plot(np.array(true_trajectory)[:, 0], np.array(true_trajectory)[:, 2], "-.")
 plt.title("Phase Space")
 plt.legend([f'{args.model}', "True"])
-plt.xlabel("Theta (rad)")
-plt.ylabel("Omega (rad/s)")
-phase_path = output_dir / f"phase_portrait_{args.model}.png"
+plt.xlabel("Theta 1 (rad)")
+plt.ylabel("Omega 1 (rad/s)")
+phase_path = output_dir / f"phase_portrait_1_{args.model}.png"
+plt.savefig(phase_path, dpi=300, bbox_inches='tight')
+print(f"Plot saved to {phase_path}")
+if args.show:
+    plt.show()
+else:
+    plt.close()
+
+# Phase space plot 2
+plt.figure(figsize=(10, 6))
+plt.plot(np.array(model_trajectory)[:, 1], np.array(model_trajectory)[:, 3], "--")
+plt.plot(np.array(true_trajectory)[:, 1], np.array(true_trajectory)[:, 3], "-.")
+plt.title("Phase Space")
+plt.legend([f'{args.model}', "True"])
+plt.xlabel("Theta 2 (rad)")
+plt.ylabel("Omega 2 (rad/s)")
+phase_path = output_dir / f"phase_portrait_2_{args.model}.png"
 plt.savefig(phase_path, dpi=300, bbox_inches='tight')
 print(f"Plot saved to {phase_path}")
 if args.show:
