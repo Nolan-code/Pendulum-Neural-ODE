@@ -75,6 +75,8 @@ python -m src.systems.pendulum.training.train.py --model hnn --epochs 300 --lr 0
 Simulate trajectories:  
 python -m src.systems.pendulum.simulation.simulate.py --model lnn --checkpoint src\systems\pendulum\checkpoints\lnn.pth --initial_conditions 0.5 0.4 --show
 
+model names: hnn, lnn, mlp
+
 Double pendulum:  
 Train a model:  
 python -m src.systems.double_pendulum.training.train.py --model hnn --epochs 750 --lr 0.001  
