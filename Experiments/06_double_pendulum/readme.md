@@ -1,1 +1,1 @@
-
+Due to the variety of results depending on the initial conditions, the results analysis is conducted in the final_report within the report section. The trajectory and error plots can be observed directly in the notebooks contained in this file, or by recreating these experiments following the steps explained in the main README.
