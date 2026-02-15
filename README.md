@@ -1,5 +1,5 @@
 # Pendulum-Neural-ODE
-This project investigates the learning of nonlinear physical dynamics using neural networks, with the inverted pendulum as a benchmark system.   
+This project investigates the learning of nonlinear physical dynamics using neural networks, with the pendulum as a benchmark system.   
 The goal is to compare purely data-driven models to physics informed architectures and to analyze their ability to reproduce both the quantitative accuracy and qualitative physical structure of a conservative dynamical system.
 
 ## Physical system
